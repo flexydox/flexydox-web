@@ -1,7 +1,13 @@
+@import "https://unpkg.com/open-props";
+
 :root {
-  --pastel: #000000;
+  --color-bg: #000000;
+  --color-text: #ffffff;
   --page-width: 1200px;
   --vertical-margin: 4rem;
+  --img-size: 160px;
+  --hero-font-size: 36px;
+  --section-font-size: 24px;
 }
 
 html,
@@ -9,28 +15,55 @@ body {
   margin: 0;
   padding: 0;
 }
+
+a,
+a:visited {
+  color: var(--orange-6);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--orange-4);
+  text-decoration: underline;
+}
+
 html {
   display: grid;
-  justify-items: center;
+  grid-template-columns: var(--page-width);
+  justify-content: center;
+
 }
 
 body {
-  width: var(--page-width);
-  background-color: black;
-  color: white;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Average Sans", sans-serif;
+
+
+
+  >section,
+  >header {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    margin-bottom: var(--vertical-margin);
+
+  }
+
 }
-section.front {
-  height: 120vh;
-}
+
 header {
   display: grid;
   grid-template-rows: 1fr;
   text-align: right;
   grid-column: 1 / span 3;
-  font-family: "Average Sans", sans-serif;
   font-weight: 400;
   font-size: 25px;
+
+
   .documentation {
+    width: 100%;
+
     .github-logo {
       height: 40px;
       padding-left: 5px;
@@ -39,154 +72,50 @@ header {
     }
   }
 }
+
 .title {
-  grid-column: 2;
-  text-align: center;
-  margin-top: 10px;
-  .first-h1,
-  .second-h1,
-  .third-h1 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  img {
+    width: var(--img-size);
+    height: var(--img-size);
+  }
+
+  h1 {
     margin: 0;
     padding: 0;
-    display: inline;
-    font-family: "Average Sans", sans-serif;
     font-weight: 400;
     font-size: 105px;
     font-style: normal;
     text-decoration: underline;
+    display: inline;
+
+    .alternate {
+      color: black;
+      -webkit-text-stroke: 0.5px white;
+    }
   }
-  .first-h1 {
-    margin-right: 2px;
-  }
-  .second-h1 {
-    text-decoration: none;
-  }
-  .third-h1 {
-    margin-left: 1px;
-    color: black;
-    -webkit-text-stroke: 0.5px white;
-  }
+
 }
+
 .intro-text {
-  grid-column: 2;
-  grid-row: 3;
-  margin-top: 6rem;
-  font-family: "Average Sans", sans-serif;
-  font-weight: 400;
-  font-size: 25px;
-  font-style: normal;
+  font-size: var(--hero-font-size);
+  text-align: center;
 }
-.grey-stripe {
+
+.intro-video {
+
+
+  video {
+    max-width: calc(var(--page-width) - 10%);
+    height: auto;
+  }
+}
+
+.links {
+  font-size: var(--hero-font-size);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: var(--pastel);
-  font-family: "Average Sans", sans-serif;
-  font-weight: 400;
-  margin-bottom: 50px;
-
-  .text-1 {
-    font-size: 39px;
-  }
-  .placeholder-2 {
-    margin-top: 85px;
-    width: 100%;
-  }
-}
-@media all and (min-width: 1550px) {
-  body {
-    width: 100vw;
-  }
-  section.front {
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-  .grey-stripe {
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-}
-@media all and (min-width: 850px) and (max-width: 1200px) {
-  :root {
-    --page-width: 100%;
-    --vertical-margin: 4rem;
-  }
-  .intro-text {
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 25px;
-  }
-  .grey-stripe {
-    grid-template-columns: 1fr;
-  }
-  header {
-    margin-right: 5%;
-    font-size: 20px;
-  }
-  .title {
-    .first-h1,
-    .second-h1,
-    .third-h1 {
-      font-size: 68px;
-    }
-  }
-  .third-h1 {
-    -webkit-text-stroke: 0.6px white;
-  }
-  .grey-stripe {
-    .text-1 {
-      text-align: center;
-      font-size: 40px;
-      margin-left: 10%;
-      margin-right: 10%;
-    }
-    .placeholder-2 {
-      margin-left: 10%;
-      margin-right: 10%;
-      width: 80%;
-    }
-  }
-}
-@media all and (max-width: 850px) {
-  :root {
-    --page-width: 100%;
-    --vertical-margin: 4rem;
-  }
-
-  .intro-text {
-    text-align: center;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    font-size: 25px;
-  }
-  .grey-stripe {
-    grid-template-columns: 1fr;
-  }
-  header {
-    margin-right: 1rem;
-    font-size: 20px;
-  }
-  .title {
-    .first-h1,
-    .second-h1,
-    .third-h1 {
-      font-size: 68px;
-    }
-  }
-  .third-h1 {
-    -webkit-text-stroke: 0.6px white;
-  }
-  .grey-stripe {
-    .text-1 {
-      text-align: center;
-      font-size: 40px;
-      margin-left: 2.5rem;
-      margin-right: 2.5rem;
-    }
-    .placeholder-2 {
-      margin-left: 10%;
-      margin-right: 10%;
-      width: 80%;
-    }
-  }
+  gap: 1rem;
 }

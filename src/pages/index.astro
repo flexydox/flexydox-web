@@ -5,15 +5,12 @@ import "../styles/main.scss";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
-      rel="stylesheet"
-    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Alata&family=Average+Sans&display=swap"
       rel="stylesheet"
@@ -21,32 +18,32 @@ import "../styles/main.scss";
     <title>Flexydox</title>
   </head>
   <body>
-    <section class="front">
-      <header>
-        <div class="documentation">
-          Documentation
+    <header>
+      <div class="documentation">
+        <a href="https://github.com/flexydox/flexydox">
           <img class="github-logo" src="/images/github-logo.svg" />
-        </div>
-      </header>
+        </a>
+      </div>
+    </header>
+    <section>
       <div class="title">
-        <h1 class="first-h1">Flex</h1>
-        <h1 class="second-h1">y</h1>
-        <h1 class="third-h1">dox</h1>
+        <img src="/images/flexydox-logo.svg" alt="Flexydox logo" />
+        <h1>
+          Flexy<span class="alternate">dox</span>
+        </h1>
       </div>
-      <p class="intro-text">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat
-        volutpat. Mauris tincidunt sem sed arcu. Morbi scelerisque luctus velit.
-        Pellentesque arcu. Integer malesuada. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Vivamus luctus egestas leo. Etiam dui sem, fermentum vitae,
-        sagittis id, malesuada in, quam. Neque porro quisquam est, qui dolorem
-      </p>
     </section>
-    <div class="grey-stripe">
-      <div class="text-1">
-        How it works?
-      </div>
+    <section class="intro-text">
+      Effortlessly generate unified API documentation
+      <br />from multiple REST and GraphQL endpoints
+    </section>
+    <section class="intro-video">
       <video class="placeholder-2" controls src="/images/video.mp4"> </video>
-    </div>
+    </section>
+
+    <section class="links">
+      <a href="https://github.com/flexydox/flexydox">GitHub</a>
+      <a href="https://examples.flexydox.org/">Examples</a>
+    </section>
   </body>
 </html>
