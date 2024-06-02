@@ -5,9 +5,11 @@
   --color-text: #ffffff;
   --page-width: 1200px;
   --vertical-margin: 4rem;
-  --img-size: 160px;
+  --logo-size: 160px;
   --hero-font-size: 36px;
+  --title-font-size: 108px;
   --section-font-size: 24px;
+  --github-logo-size: 40px;
 }
 
 html,
@@ -58,14 +60,14 @@ header {
   text-align: right;
   grid-column: 1 / span 3;
   font-weight: 400;
-  font-size: 25px;
 
+  font-size: var(--section-font-size);
 
   .documentation {
     width: 100%;
 
     .github-logo {
-      height: 40px;
+      height: var(--github-logo-size);
       padding-left: 5px;
       padding-right: 5px;
       padding-top: 10px;
@@ -79,15 +81,15 @@ header {
   align-items: center;
 
   img {
-    width: var(--img-size);
-    height: var(--img-size);
+    width: var(--logo-size);
+    height: var(--logo-size);
   }
 
   h1 {
     margin: 0;
     padding: 0;
     font-weight: 400;
-    font-size: 105px;
+    font-size: var(--title-font-size);
     font-style: normal;
     text-decoration: underline;
     display: inline;
@@ -118,4 +120,26 @@ header {
   font-size: var(--hero-font-size);
   display: grid;
   gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --page-width: 95svw;
+    --vertical-margin: 3rem;
+    --logo-size: 100px;
+    --title-font-size: 70px;
+    --hero-font-size: 36px;
+    --section-font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-width: 95svw;
+    --vertical-margin: 2rem;
+    --logo-size: 15svw;
+    --title-font-size: 9svw;
+    --hero-font-size: 4.5svw;
+    --section-font-size: 4svw;
+  }
 }
