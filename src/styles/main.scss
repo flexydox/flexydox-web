@@ -4,12 +4,14 @@
   --color-bg: #000000;
   --color-text: #ffffff;
   --page-width: 1200px;
-  --vertical-margin: 4rem;
+  --vertical-margin: 7rem;
   --logo-size: 160px;
   --hero-font-size: 36px;
   --title-font-size: 108px;
   --section-font-size: 24px;
   --github-logo-size: 40px;
+  --page-height: 92svh;
+  --link-gap: 8rem;
 }
 
 html,
@@ -29,30 +31,27 @@ a:hover {
   text-decoration: underline;
 }
 
-html {
+
+body {
   display: grid;
   grid-template-columns: var(--page-width);
   justify-content: center;
-
-}
-
-body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Average Sans", sans-serif;
 
 
 
-  >section,
-  >header {
-    display: grid;
-    justify-items: center;
-    width: 100%;
-    margin-bottom: var(--vertical-margin);
-
-  }
-
 }
+
+section.page-1 {
+  height: var(--page-height);
+}
+
+section.page-1>*+* {
+  margin-top: var(--vertical-margin);
+}
+
 
 header {
   display: grid;
@@ -77,15 +76,24 @@ header {
 
 .title {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-panel {
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
 
   img {
     width: var(--logo-size);
     height: var(--logo-size);
+
   }
 
   h1 {
+    justify-self: end;
     margin: 0;
     padding: 0;
     font-weight: 400;
@@ -108,7 +116,8 @@ header {
 }
 
 .intro-video {
-
+  display: grid;
+  justify-items: center;
 
   video {
     max-width: calc(var(--page-width) - 10%);
@@ -117,9 +126,12 @@ header {
 }
 
 .links {
+  margin: var(--vertical-margin) 0;
   font-size: var(--hero-font-size);
   display: grid;
-  gap: 1rem;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: var(--link-gap);
 }
 
 @media (max-width: 1200px) {
@@ -141,5 +153,6 @@ header {
     --title-font-size: 9svw;
     --hero-font-size: 4.5svw;
     --section-font-size: 4svw;
+    --link-gap: 4rem;
   }
 }
