@@ -31,7 +31,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 body {
   display: grid;
   grid-template-columns: var(--page-width);
@@ -39,19 +38,15 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Average Sans", sans-serif;
-
-
-
 }
 
 section.page-1 {
   height: var(--page-height);
 }
 
-section.page-1>*+* {
+section.page-1 > * + * {
   margin-top: var(--vertical-margin);
 }
-
 
 header {
   display: grid;
@@ -89,7 +84,6 @@ header {
   img {
     width: var(--logo-size);
     height: var(--logo-size);
-
   }
 
   h1 {
@@ -107,7 +101,6 @@ header {
       -webkit-text-stroke: 0.5px white;
     }
   }
-
 }
 
 .intro-text {
@@ -154,5 +147,6 @@ header {
     --hero-font-size: 4.5svw;
     --section-font-size: 4svw;
     --link-gap: 4rem;
+    --s: 1;
   }
 }
