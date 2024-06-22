@@ -2,10 +2,11 @@
 
 :root {
   --color-bg: #000000;
+  --color-bg-header: #1e1e1e;
   --color-text: #ffffff;
   --page-width: 1200px;
   --vertical-margin: 7rem;
-  --logo-size: 160px;
+  --logo-size: 80px;
   --hero-font-size: 36px;
   --title-font-size: 108px;
   --section-font-size: 24px;
@@ -18,7 +19,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Average Sans", sans-serif;
 }
+
 
 a,
 a:visited {
@@ -31,34 +36,77 @@ a:hover {
   text-decoration: underline;
 }
 
-body {
+.main-content {
   display: grid;
   grid-template-columns: var(--page-width);
   justify-content: center;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: "Average Sans", sans-serif;
+
 }
 
 section.page-1 {
   height: var(--page-height);
 }
 
-section.page-1 > * + * {
+section.page-1>*+* {
   margin-top: var(--vertical-margin);
 }
 
-header {
+.cta {
   display: grid;
-  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+
+  a,
+  a:visited {
+    color: black;
+  }
+
+  a:hover {
+    color: var(--primary-color);
+  }
+
+  button {
+    background-color: var(--gray-0);
+
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--primary-color);
+  }
+}
+
+header {
+  background-color: var(--color-bg-header);
+  padding: 0 2rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr;
   text-align: right;
   grid-column: 1 / span 3;
   font-weight: 400;
 
   font-size: var(--section-font-size);
 
-  .documentation {
-    width: 100%;
+  .logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+
+  }
+
+  .header-links {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: 1.3rem;
+    height: 100%;
+    font-size: 1.4rem;
+
+    a,
+    a:visited {
+      color: var(--color-text);
+    }
 
     .github-logo {
       height: var(--github-logo-size);
@@ -81,10 +129,7 @@ header {
   grid-template-columns: auto auto;
   align-items: center;
 
-  img {
-    width: var(--logo-size);
-    height: var(--logo-size);
-  }
+
 
   h1 {
     justify-self: end;
