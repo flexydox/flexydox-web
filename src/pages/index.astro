@@ -18,36 +18,37 @@ import "../styles/main.scss";
     <title>Flexydox</title>
   </head>
   <body>
-    <section class="page-1">
-      <header>
-        <div class="documentation">
-          <a href="https://github.com/flexydox/flexydox">
-            <img class="github-logo" src="/images/github-logo.svg" />
-          </a>
-        </div>
-      </header>
+    <header>
+      <img class="logo" src="/images/flexydox-logo.svg" alt="Flexydox logo" />
+      <div class="header-links">
+        <a href="/docs/usage">Documentation</a>
+        <a href="https://github.com/flexydox/flexydox">
+          <img class="github-logo" src="/images/github-logo.svg" />
+        </a>
+      </div>
+    </header>
+    <section class="main-content">
+      <section class="page-1">
+        <section class="title">
+          <div class="title-panel">
+            <h1>
+              Flexy<span class="alternate">dox</span>
+            </h1>
+          </div>
+        </section>
 
-      <section class="title">
-        <div class="title-panel">
-          <h1>
-            Flexy<span class="alternate">dox</span>
-          </h1>
-          <img src="/images/flexydox-logo.svg" alt="Flexydox logo" />
-        </div>
+        <section class="intro-text">
+          Effortlessly generate unified API documentation
+          <br />from multiple REST and GraphQL endpoints
+        </section>
+        <section class="cta">
+          <a href="/docs/usage"><button>Get Started</button></a>
+        </section>
       </section>
 
-      <section class="intro-text">
-        Effortlessly generate unified API documentation
-        <br />from multiple REST and GraphQL endpoints
+      <section class="intro-video">
+        <video class="placeholder-2" controls src="/images/video.mp4"> </video>
       </section>
-    </section>
-    <section class="intro-video">
-      <video class="placeholder-2" controls src="/images/video.mp4"> </video>
-    </section>
-
-    <section class="links">
-      <a href="https://examples.flexydox.org/">Examples</a>
-      <a href="https://github.com/flexydox/flexydox">GitHub</a>
     </section>
   </body>
 </html>

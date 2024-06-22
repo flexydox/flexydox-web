@@ -1,0 +1,105 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+// @ts-ignore
+import { Marked } from "marked";
+import { sidebarConfig } from "./sidebar";
+export const pages = [
+  {
+    slug: "index",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/usage.md",
+    title: "Usage"
+  },
+  {
+    slug: "usage",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/usage.md",
+    title: "Usage"
+  },
+  {
+    slug: "core-concepts",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/core-concepts.md",
+    title: "Core Concepts"
+  },
+
+  {
+    slug: "configuration",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/configuration.md",
+    title: "Configuration"
+  },
+  {
+    slug: "cli",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/cli.md",
+    title: "CLI"
+  },
+  {
+    slug: "roadmap",
+    sourceUrl:
+      "https://raw.githubusercontent.com/flexydox/flexydox/main/docs/roadmap.md",
+    title: "Roadmap"
+  }
+];
+
+export async function getStaticPaths() {
+  return pages.map((page) => ({ params: { slug: page.slug } }));
+}
+const { slug } = Astro.params;
+const pageData = pages.find((page) => page.slug === slug);
+
+const response = await fetch(pageData?.sourceUrl ?? "");
+const markdown = await response.text();
+
+import markedShiki from "marked-shiki";
+import { getHighlighter } from "shiki";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight,
+  transformerNotationFocus,
+  transformerNotationErrorLevel,
+  transformerMetaHighlight,
+  transformerMetaWordHighlight
+} from "@shikijs/transformers";
+
+const highlighter = await getHighlighter({
+  // In this case, we include the "js" language specifier to ensure that
+  // Shiki applies the appropriate syntax highlighting for Markdown code
+  // blocks.
+  langs: ["md", "js", "yaml", "http"],
+  themes: ["github-dark-dimmed"]
+});
+
+const marked = new Marked(
+  markedShiki({
+    highlight(code, lang, props) {
+      return highlighter.codeToHtml(code, {
+        lang,
+        theme: "github-dark-dimmed",
+        meta: { __raw: props.join(" ") }, // required by `transformerMeta*`
+        transformers: [
+          transformerNotationDiff(),
+          transformerNotationHighlight(),
+          transformerNotationWordHighlight(),
+          transformerNotationFocus(),
+          transformerNotationErrorLevel(),
+          transformerMetaHighlight(),
+          transformerMetaWordHighlight()
+        ]
+      });
+    }
+  })
+);
+const content = marked.parse(markdown);
+---
+
+<style is:global>
+  article h1 {
+    display: none;
+  }
+</style>
+<StarlightPage sidebar={sidebarConfig} frontmatter={{ title: pageData?.title }}>
+  <article set:html={content} />
+</StarlightPage>
