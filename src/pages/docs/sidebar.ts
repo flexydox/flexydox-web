@@ -16,5 +16,11 @@ export const sidebarConfig = [
       { label: "Configuration file", href: "/docs/configuration" },
       { label: "CLI reference", href: "/docs/cli" }
     ]
+  },
+  {
+    label: "Development",
+    items: [
+      { label: "Development Guide", href: "/docs/development" }
+    ]
   }
 ];
