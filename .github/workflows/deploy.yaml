@@ -1,4 +1,4 @@
-name: Deploy Flexydox web site to Github Pages
+name: deploy
 on:
   # Runs on pushes targeting the default branch
   push:
